@@ -2,14 +2,15 @@
 <html lang="zh-CN">
 
 <head>
-    <!-- 页签 -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的电商</title>
+    <!-- 页签：设置页面字符集、视口和标题 -->
+    <meta charset="UTF-8"> <!-- 设置字符编码为UTF-8，支持中文显示 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，确保页面在移动设备上的显示效果 -->
+    <title>我的电商</title> <!-- 页面的标题，在浏览器标签上显示 -->
+
     <!-- 引用 css 样式 -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- 引入外部CSS文件，用于页面样式的设计 -->
     <!-- 引用 js 脚本 -->
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- 引入外部JS文件，用于页面交互功能 -->
 </head>
 
 <body>
@@ -18,17 +19,16 @@
         <div class="container">
             <div class="name">
                 <div>沈楚滢-25216950606</div>
-
             </div>
             <!-- 导航栏 -->
             <nav class="nav">
                 <!-- 导航栏列表 -->
                 <ul>
                     <!-- 导航栏列表项 -->
-                    <li><a href="#">首页</a></li>
-                    <li><a href="#" onclick="openAuth()">登录 / 注册</a></li>
-                    <li><a href="#" onclick="goCart()">购物车</a></li>
-                    <li><a href="#" onclick="goUser()">个人中心</a></li>
+                    <li><a href="#">首页</a></li> <!-- 首页链接 -->
+                    <li><a href="#" onclick="openAuth()">登录 / 注册</a></li> <!-- 登录/注册链接，点击后调用openAuth函数 -->
+                    <li><a href="#" onclick="goCart()">购物车</a></li> <!-- 购物车链接，点击后调用goCart函数 -->
+                    <li><a href="#" onclick="goUser()">个人中心</a></li> <!-- 个人中心链接，点击后调用goUser函数 -->
                 </ul>
             </nav>
         </div>
@@ -36,21 +36,23 @@
 
     <!-- 轮播图 -->
     <section class="banner" id="banner">
-        <!-- JavaScript会在这里动态生成轮播图内容 -->
+        <!-- 这里是轮播图内容，JavaScript将动态生成轮播图项目 -->
     </section>
 
+    <!-- 活动商品 -->
     <section class="products">
         <div class="container">
             <div class="section-title">
-                <h2>精彩活动</h2>
-                <a href="#" class="more">更多 ></a>
+                <h2>精彩活动</h2> <!-- 活动标题 -->
+                <a href="#" class="more">更多 ></a> <!-- 更多链接，用户可以查看更多活动 -->
             </div>
             <div class="product-list">
+                <!-- 单个活动商品项 -->
                 <a href="activity-1.html" class="product-item">
-                    <img src="./img/a1.jpeg" alt="限时秒杀">
-                    <h3>限时秒杀</h3>
-                    <p class="price">¥9.9</p>
-                    <p class="sales">已售10万+</p>
+                    <img src="./img/a1.jpeg" alt="限时秒杀"> <!-- 活动图片 -->
+                    <h3>限时秒杀</h3> <!-- 活动标题 -->
+                    <p class="price">¥9.9</p> <!-- 商品价格 -->
+                    <p class="sales">已售10万+</p> <!-- 商品已售数量 -->
                 </a>
                 <a href="activity-2.html" class="product-item">
                     <img src="./img/a2.jpeg" alt="超值特卖">
@@ -78,15 +80,16 @@
     <section class="products">
         <div class="container">
             <div class="section-title">
-                <h2>精选商品</h2>
-                <a href="#" class="more">更多 ></a>
+                <h2>精选商品</h2> <!-- 精选商品标题 -->
+                <a href="#" class="more">更多 ></a> <!-- 更多链接 -->
             </div>
             <div class="product-list">
+                <!-- 单个精选商品项 -->
                 <a href="product-1.html" class="product-item">
-                    <img src="./img/aoliao.jpg">
-                    <h3>奥利奥</h3>
-                    <p class="price">¥29.9</p>
-                    <p class="sales">已售10万+</p>
+                    <img src="./img/aoliao.jpg"> <!-- 商品图片 -->
+                    <h3>奥利奥</h3> <!-- 商品标题 -->
+                    <p class="price">¥29.9</p> <!-- 商品价格 -->
+                    <p class="sales">已售10万+</p> <!-- 商品已售数量 -->
                 </a>
                 <a href="product-2.html" class="product-item">
                     <img src="./img/shanghaojia.jpg" alt="精选零食大礼包">
@@ -112,18 +115,18 @@
 
     <!-- 登录 / 注册弹窗 -->
     <div id="authBox" class="auth-box" style="display:none;">
+        <!-- 弹出框内容 -->
         <div class="auth-content">
-            <h2 id="authTitle">登录</h2>
+            <h2 id="authTitle">登录</h2> <!-- 弹窗标题，初始显示“登录” -->
+            <input type="text" id="username" placeholder="请输入用户名"> <!-- 用户名输入框 -->
+            <input type="password" id="password" placeholder="请输入密码"> <!-- 密码输入框 -->
 
-            <input type="text" id="username" placeholder="请输入用户名">
-            <input type="password" id="password" placeholder="请输入密码">
+            <button onclick="login()">登录</button> <!-- 登录按钮，点击后调用login函数 -->
+            <button onclick="register()">注册</button> <!-- 注册按钮，点击后调用register函数 -->
+            <button class="close-btn" onclick="closeAuth()">关闭</button> <!-- 关闭弹窗按钮，调用closeAuth函数 -->
+            <button class="close-btn" onclick="logOut()">退出登录</button> <!-- 退出登录按钮，调用logOut函数 -->
 
-            <button onclick="login()">登录</button>
-            <button onclick="register()">注册</button>
-            <button class="close-btn" onclick="closeAuth()">关闭</button>
-            <button class="close-btn" onclick="logOut()">退出登录</button>
-
-            <p id="authMsg"></p>
+            <p id="authMsg"></p> <!-- 显示登录或注册相关消息 -->
         </div>
     </div>
 
