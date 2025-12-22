@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <!-- 页签 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的电商</title>
+    <!-- 引用 css 样式 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 引用 js 脚本 -->
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <!-- 头部导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="name">
+                <div>沈楚滢-25216950606</div>
+
+            </div>
+            <!-- 导航栏 -->
+            <nav class="nav">
+                <!-- 导航栏列表 -->
+                <ul>
+                    <!-- 导航栏列表项 -->
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#" onclick="openAuth()">登录 / 注册</a></li>
+                    <li><a href="#" onclick="goCart()">购物车</a></li>
+                    <li><a href="#" onclick="goUser()">个人中心</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 轮播图 -->
+    <section class="banner" id="banner">
+        <!-- JavaScript会在这里动态生成轮播图内容 -->
+    </section>
+
+    <section class="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>精彩活动</h2>
+                <a href="#" class="more">更多 ></a>
+            </div>
+            <div class="product-list">
+                <a href="activity-1.html" class="product-item">
+                    <img src="./img/a1.jpeg" alt="限时秒杀">
+                    <h3>限时秒杀</h3>
+                    <p class="price">¥9.9</p>
+                    <p class="sales">已售10万+</p>
+                </a>
+                <a href="activity-2.html" class="product-item">
+                    <img src="./img/a2.jpeg" alt="超值特卖">
+                    <h3>超值特卖</h3>
+                    <p class="price">¥29.0</p>
+                    <p class="sales">已售8.8万+</p>
+                </a>
+                <a href="activity-3.html" class="product-item">
+                    <img src="./img/a3.jpeg" alt="超级优惠">
+                    <h3>超级优惠</h3>
+                    <p class="price">¥59.0</p>
+                    <p class="sales">已售5.7万+</p>
+                </a>
+                <a href="activity-4.html" class="product-item">
+                    <img src="./img/a4.jpeg" alt="免费赠送">
+                    <h3>免费赠送</h3>
+                    <p class="price">¥0.00</p>
+                    <p class="sales">已售100万+</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精选商品 -->
+    <section class="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>精选商品</h2>
+                <a href="#" class="more">更多 ></a>
+            </div>
+            <div class="product-list">
+                <a href="product-1.html" class="product-item">
+                    <img src="./img/aoliao.jpg">
+                    <h3>奥利奥</h3>
+                    <p class="price">¥29.9</p>
+                    <p class="sales">已售10万+</p>
+                </a>
+                <a href="product-2.html" class="product-item">
+                    <img src="./img/shanghaojia.jpg" alt="精选零食大礼包">
+                    <h3>精选零食大礼包</h3>
+                    <p class="price">¥99.0</p>
+                    <p class="sales">已售5万+</p>
+                </a>
+                <a href="product-3.html" class="product-item">
+                    <img src="./img/girlclothes.jpg" alt="女装">
+                    <h3>时尚女装</h3>
+                    <p class="price">¥199.0</p>
+                    <p class="sales">已售3万+</p>
+                </a>
+                <a href="product-4.html" class="product-item">
+                    <img src="./img/boyshirt.jpg" alt="男装">
+                    <h3>精选男装</h3>
+                    <p class="price">¥59.9</p>
+                    <p class="sales">已售8万+</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 登录 / 注册弹窗 -->
+    <div id="authBox" class="auth-box" style="display:none;">
+        <div class="auth-content">
+            <h2 id="authTitle">登录</h2>
+
+            <input type="text" id="username" placeholder="请输入用户名">
+            <input type="password" id="password" placeholder="请输入密码">
+
+            <button onclick="login()">登录</button>
+            <button onclick="register()">注册</button>
+            <button class="close-btn" onclick="closeAuth()">关闭</button>
+            <button class="close-btn" onclick="logOut()">退出登录</button>
+
+            <p id="authMsg"></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .cart-container {
+            width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .cart-list div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-list button {
+            padding: 4px 8px;
+            background-color: #ff4d4f;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .total-price {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .cart-actions {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .cart-actions button {
+            padding: 6px 12px;
+            margin-left: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="cart-container">
+        <h2>我的购物车</h2>
+
+        <div id="cartList" class="cart-list"></div>
+
+        <p id="totalPrice" class="total-price"></p>
+
+        <div class="cart-actions">
+            <button onclick="clearCart()">清空购物车</button>
+            <button onclick="location.href='index.html'">继续购物</button>
+        </div>
+    </div>
+
+    <!-- 原来的 script 不动 -->
+
+    <script>
+        const user = localStorage.getItem("currentUser");
+        if (!user) {
+            alert("请先登录");
+            location.href = "index.html";
+        }
+
+        const key = "cart_" + user;
+        let cart = JSON.parse(localStorage.getItem(key)) || [];
+        const list = document.getElementById("cartList");
+        let total = 0;
+
+        cart.forEach((item, index) => {
+            total += item.price * item.count;
+            const div = document.createElement("div");
+            div.innerHTML = `
+            ${item.name} - ¥${item.price} × ${item.count}
+            <button onclick="removeItem(${index})">删除</button>
+        `;
+            list.appendChild(div);
+        });
+
+        document.getElementById("totalPrice").innerText =
+            "总价：¥" + total.toFixed(2);
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem(key, JSON.stringify(cart));
+            location.reload();
+        }
+
+        function clearCart() {
+            localStorage.removeItem(key);
+            location.reload();
+        }
+    </script>
+
+</body>
+
+</html>

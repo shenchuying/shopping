@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>限时秒杀 - 商品详情</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 详情页特定样式 */
+        .product-detail {
+            background-color: white;
+            padding: 20px 0;
+        }
+        
+        .detail-container {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .product-images {
+            flex: 1;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .product-info h1 {
+            font-size: 28px;
+            color: #333;
+        }
+        
+        .product-price {
+            font-size: 32px;
+            color: #ff4d4f;
+            font-weight: bold;
+        }
+        
+        .product-sales {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .product-description {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+        
+        .product-description h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .buy-button {
+            background-color: #ff4d4f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        
+        .buy-button:hover {
+            background-color: #ff7875;
+        }
+        
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .back-home:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .detail-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .product-info h1 {
+                font-size: 24px;
+            }
+            
+            .product-price {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="name">
+                <div>沈楚滢-25216950606</div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <!-- 导航栏列表项 -->
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#" onclick="openAuth()">登录 / 注册</a></li>
+                    <li><a href="#" onclick="goCart()">购物车</a></li>
+                    <li><a href="#" onclick="goUser()">个人中心</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 商品详情 -->
+    <section class="product-detail">
+        <div class="detail-container">
+            <!-- 商品图片 -->
+            <div class="product-images">
+                <img src="./img/a1.jpeg" alt="限时秒杀" class="main-image">
+            </div>
+            
+            <!-- 商品信息 -->
+            <div class="product-info">
+                <h1>限时秒杀</h1>
+                <div class="product-price">¥9.9</div>
+                <div class="product-sales">已售 10万+</div>
+                
+                <button class="buy-button">立即购买</button>
+                <a href="index.html" class="back-home">← 返回首页</a>
+                
+                <!-- 商品描述 -->
+                <div class="product-description">
+                    <h3>商品描述</h3>
+                    <p>限时秒杀活动，超低价格抢购高品质商品！</p>
+                    <p>活动时间：每日00:00-24:00</p>
+                    <p>商品特点：</p>
+                    <ul>
+                        <li>每日精选商品，限时特价</li>
+                        <li>数量有限，先到先得</li>
+                        <li>品质保证，假一赔十</li>
+                        <li>快速配送，贴心服务</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+
+</body>
+
+</html>

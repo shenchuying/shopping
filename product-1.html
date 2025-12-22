@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奥利奥 - 商品详情</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+    <style>
+        /* 详情页特定样式 */
+        .product-detail {
+            background-color: white;
+            padding: 20px 0;
+        }
+
+        .detail-container {
+            display: flex;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .product-images {
+            flex: 1;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .product-info h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 32px;
+            color: #ff4d4f;
+            font-weight: bold;
+        }
+
+        .product-sales {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .product-description {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        .product-description h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .buy-button {
+            background-color: #ff4d4f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .buy-button:hover {
+            background-color: #ff7875;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-home:hover {
+            color: #333;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .detail-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .product-info h1 {
+                font-size: 24px;
+            }
+
+            .product-price {
+                font-size: 28px;
+            }
+        }
+
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .quantity-box button {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #ddd;
+            background: #f5f5f5;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .quantity-box input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            height: 32px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 头部导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="name">
+                <div>沈楚滢-25216950606</div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <!-- 导航栏列表项 -->
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="#" onclick="openAuth()">登录 / 注册</a></li>
+                    <li><a href="#" onclick="goCart()">购物车</a></li>
+                    <li><a href="#" onclick="goUser()">个人中心</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 商品详情 -->
+    <section class="product-detail">
+        <div class="detail-container">
+            <!-- 商品图片 -->
+            <div class="product-images">
+                <img src="./img/aoliao.jpg" alt="奥利奥" class="main-image">
+            </div>
+
+            <!-- 商品信息 -->
+            <div class="product-info">
+                <h1>奥利奥</h1>
+                <div class="product-price">¥29.9</div>
+                <div class="product-sales">已售 10万+</div>
+
+                <!-- 数量选择 -->
+                <div class="quantity-box">
+                    <span>数量：</span>
+                    <button onclick="decrease()">-</button>
+                    <input type="text" id="quantity" value="1" readonly>
+                    <button onclick="increase()">+</button>
+                </div>
+
+                <button class="buy-button" onclick="addToCartWithCount(event,'奥利奥',29.9)">
+                    加入购物车
+                </button>
+
+                <button class="buy-button">立即购买</button>
+                <a href="index.html" class="back-home">← 返回首页</a>
+
+                <!-- 商品描述 -->
+                <div class="product-description">
+                    <h3>商品描述</h3>
+                    <p>奥利奥夹心饼干，经典美味，深受大众喜爱！</p>
+                    <p>产品特点：</p>
+                    <ul>
+                        <li>经典黑白夹心设计</li>
+                        <li>口感酥脆，甜而不腻</li>
+                        <li>多种口味选择</li>
+                        <li>独立包装，方便携带</li>
+                    </ul>
+                    <p>净含量：400g</p>
+                    <p>保质期：12个月</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 登录 / 注册弹窗 -->
+    <div id="authBox" class="auth-box" style="display:none;">
+        <div class="auth-content">
+            <h2 id="authTitle">登录</h2>
+
+            <input type="text" id="username" placeholder="请输入用户名">
+            <input type="password" id="password" placeholder="请输入密码">
+
+            <button onclick="login()">登录</button>
+            <button onclick="register()">注册</button>
+            <button class="close-btn" onclick="closeAuth()">关闭</button>
+            <button class="close-btn" onclick="logOut()">退出登录</button>
+
+            <p id="authMsg"></p>
+        </div>
+    </div>
+</body>
+
+</html>

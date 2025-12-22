@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .user-container {
+            width: 400px;
+            margin: 80px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .user-info {
+            font-size: 16px;
+            margin: 20px 0;
+        }
+
+        .user-actions button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="user-container">
+        <h2>个人中心</h2>
+
+        <p id="userInfo" class="user-info"></p>
+
+        <div class="user-actions">
+            <button onclick="logout()">退出登录</button>
+            <button onclick="clearMyCart()">清空购物车</button>
+            <button onclick="location.href='index.html'">返回首页</button>
+        </div>
+    </div>
+
+    <script>
+        const user = localStorage.getItem("currentUser");
+        if (!user) {
+            alert("请先登录");
+            location.href = "index.html";
+        }
+
+        document.getElementById("userInfo").innerText =
+            "当前用户：" + user;
+
+        function logout() {
+            localStorage.removeItem("currentUser");
+            alert("已退出登录");
+            location.href = "index.html";
+        }
+
+        function clearMyCart() {
+            localStorage.removeItem("cart_" + user);
+            alert("购物车已清空");
+        }
+    </script>
+
+</body>
+
+</html>
